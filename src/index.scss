@@ -14,6 +14,34 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.border { 
+    border: 1px solid $pink;
+    margin: -2px;
+}
+.bg-pink {
+    background-color: $pink;
+}
+.text-dark {
+    color: $blue;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $pink;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
 @mixin create-w-classes($modifier, $width) {
   &.w#{$modifier} {
@@ -56,3 +84,4 @@ body {
 @each $modifier, $height in $map-margin-props {
   @include create-m-classes($modifier, $height);
 }
+

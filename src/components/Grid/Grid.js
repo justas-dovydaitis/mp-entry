@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import './Grid.scss';
 
 const Grid = (props) => {
-    return <div className={`${props.fluid ? 'container-fluid' : 'container'} ${props.className}`}>{props.children}</div>
+    return <div
+        className={`${props.fluid ? 'container-fluid' : 'container'} ${props.className}`}
+        style={{ ...props.style }}
+    >
+        {props.children}
+    </div>
 }
 Grid.propTypes = {
     fluid: PropTypes.bool,
@@ -12,7 +17,9 @@ Grid.propTypes = {
 
 const Row = (props) => {
     return <div
-        className={`container__row ${props.className || ''}`}>
+        className={`container__row ${props.className || ''}`}
+        style={{ ...props.style }}
+    >
         {props.children}
     </div>
 }
@@ -27,7 +34,8 @@ const Col = (props) => {
             ${props.md && `container__col-md-${props.md}`}
             ${props.lg && `container__col-lg-${props.lg}`}
             ${props.xl && `container__col-xl-${props.xl}`}
-            ${props.className}`}>
+            ${props.className}`}
+        style={{ ...props.style }}>
         {props.children}
     </div>
 }

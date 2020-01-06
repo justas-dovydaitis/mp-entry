@@ -3,6 +3,9 @@ import axios from '../../configs/axios'
 
 import { Grid, Row, Col } from '../Grid/Grid';
 import Progress from '../Progress/Progress';
+import Image from './Image';
+
+import './Galery.scss'
 
 const Galery = (props) => {
     const [images, setImages] = React.useState([]);
@@ -36,14 +39,13 @@ const Galery = (props) => {
                 md={props.md}
                 lg={props.lg}
             >
-                <img className='w-100' src={image.urls.small} alt={image.alt_description} />
+                <Image src={image.urls.small} alt={image.alt_description} />
             </Col>
         });
     }
     return (
         <Grid fluid className='vh-75 overflowY-scroll'>
-
-            <div className='h-100 w-100' style={{ position: "relative" }}>
+            <div className='h-100 w-100' style={{ position: "relative"}}>
                 {isFetching ?
                     <Progress w={'90%'} h={'10px'} className='center' loaded={reqProgress} />
                     :
