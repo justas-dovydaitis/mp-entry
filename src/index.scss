@@ -1,0 +1,58 @@
+
+@import "variables";
+body {
+  background-color: $blue;
+  color: $pink;
+}
+.overflowY-scroll {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin create-w-classes($modifier, $width) {
+  &.w#{$modifier} {
+    width: percentage($width);
+  }
+}
+
+@each $modifier, $width in $map-width-props {
+  @include create-w-classes($modifier, $width);
+}
+@mixin create-h-classes($modifier, $height) {
+  &.h#{$modifier} {
+    height: percentage($height);
+  }
+  &.max-h#{$modifier} {
+    max-height: percentage($height);
+  }
+}
+@each $modifier, $height in $map-width-props {
+  @include create-h-classes($modifier, $height);
+}
+@mixin create-vh-classes($modifier, $height) {
+  &.vh#{$modifier} {
+    height: $height * 100 + vh;
+  }
+  &.max-vh#{$modifier} {
+    max-height: $height * 100 + vh;
+  }
+}
+@each $modifier, $height in $map-width-props {
+  @include create-vh-classes($modifier, $height);
+}
+
+
+@mixin create-m-classes($modifier, $size) {
+  &.mt-#{$modifier} {
+    margin-top: $size + em;
+  }
+}
+@each $modifier, $height in $map-margin-props {
+  @include create-m-classes($modifier, $height);
+}

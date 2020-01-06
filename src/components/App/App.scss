@@ -1,6 +1,9 @@
-.overflowX-scroll {
-  overflow-x: scroll;
-}
+@import '../../variables.scss';
 .app > * input {
   height: 30px;
 }
+.app >* button {
+  background: $pink;
+  border: none;
+}
+

@@ -12,7 +12,7 @@ Grid.propTypes = {
 
 const Row = (props) => {
     return <div
-        className={`container__row ${props.className}`}>
+        className={`container__row ${props.className || ''}`}>
         {props.children}
     </div>
 }
