@@ -1,18 +1,33 @@
 import React from 'react';
 import './App.scss';
+import { Grid, Row, Col } from '../Grid/Grid';
+import Galery from '../Image/Galery';
 
-function App() {
+const App = () => {
+  const [inputVal, setInputVal] = React.useState('');
+  const [search, setSearch] = React.useState('');
+
   return (
-    <div className='App'>
-      <div className='row'>
-        <div className='col'>
-          {/* search grid */}
-        </div>
-        <div className='col'>
-          {/* save, queries */}
-        </div>
-      </div>
-    </div>
+    <Grid fluid className='app max-vh-100'>
+      <Row>
+        <Col w={12} md={8}>
+          <input type='text' className='w-100' value={inputVal} onChange={e => setInputVal(e.target.value)} />
+        </Col>
+        <Col w={6} md={2}>
+          <button className='w-100 h-100' onClick={() => setSearch(inputVal)}>Search</button>
+        </Col>
+        <Col w={6} md={2}>
+          <button className='w-100 h-100'>Save</button>
+        </Col>
+      </Row>
+      <Row>
+        <Col w={12} lg={8}>
+          <Galery xs={12} sm={12} md={6} lg={4} keyword={search} />
+        </Col>
+        <Col w={12} lg={4}>
+        </Col>
+      </Row>
+    </Grid>
   );
 }
 
